@@ -1,0 +1,165 @@
+---
+title: Análisis de datos con R
+subtitle: "tarea R"
+author: "Francisco Marquez"
+date: "17 de octubre de 2025"
+output: 
+    prettydoc::html_pretty:
+      theme: hpstr
+      highlight: vignette
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Descripción
+
+La siguiente tarea tiene como objetivo reforzar los conceptos de programación en lenguaje `R` que se discutieron anteriormente. 
+
+### Vectores atómicos
+
+En `R`, los vectores atómicos se pueden generar mediante diversos comandos, e.g., `x <- c("a","char","nuevo")` representa un vector de carácteres. Basado en lo anterior cree vectores con las siguientes características:
+
++ Un vector que represente $\{2^i\}_{i=1}^{20}$
+```{r}
+i <- seq(1,20)
+2^i
+```
+
++ Un vector que represente $\{2n+1\}_{n=4}^{13}$
+```{r secul}
+n <- 4:13
+2*n+1
+```
+
++ Un vector que represente $\{2n+1\}_{n=4}^{13} \cap \{2^i\}_{i=1}^{20}$
+```{r intersec}
+n<- 4:13
+i <- 1:20
+cj1 <- 2*n+1
+cj2 <- 2^i
+cj1
+cj2
+intersect(cj1, cj2)
+```
+
+
++ Un vector que represente $\{\sin(2*\pi t)\}_{t=1}^5$
+```{r}
+t <- seq(1,5)
+sin(2*pi*t)
+```
+
++ Un vector de $10$ números aleatorios con distribución uniforme (usar la función `runif`).
+```{r disp}
+runif(10)
+```
+
++ Un vector con las primeras 15 letras del abecedario en mayúsculas.
+```{r}
+LETTERS[1:15]
+```
+
+
+
+Supóngamos ahora que se intentan generar los siguientes vectores atómicos:
+
+
+```{r, echo=T}
+x1 <- c("1","2",2+3i,5+41)
+x2 <- log(c(T,T,T,T,F))
+x3 <- !(c(1,3,4,12,12.1,99,100))
+x4 <- c(1,2,3)<"a"
+x5 <- 1:10
+```
+
+¿De qué tipo es cada una de ellas? Liste el tipo de cada una de ellas.
+
+```{r, echo=T}
+x1 <- c("1","2",2+3i,5+41)
+x2 <- log(c(T,T,T,T,F))
+x3 <- !(c(1,3,4,12,12.1,99,100))
+x4 <- c(1,2,3)<"a"
+x5 <- 1:10
+typeof(x1)
+typeof(x2)
+typeof(x3)
+typeof(x4)
+typeof(x5)
+```
+
+### Matrices
+
+En el siguiente ejercicio se crearon las siguientes matrices:
+ 
++ Una matriz de $2\times3$ con carácteres (de cualquier tipo).
+```{r}
+car <- letters[1:6]
+matrix(car, nrow = 2, ncol = 3 , byrow = T)
+```
+
++ Una matriz de $4\times4$ cuyos elementos son s?lo la letra `"a"`.
+```{r}
+matrix("a", nrow = 4, ncol = 4)
+```
+
++ Una matriz de $5\times5$ cuyos elementos son las letras min?sculas.
+```{r}
+matrix(letters[1:25], nrow=5, ncol=5)
+```
+
+        
+        
+
++ Una matriz de $2\times2$ cuyos elementos son valores complejos.
+```{r}
+comp <- c(2+i, 3i, 4+5i,3)
+matrix(comp, nrow = 2, ncol=2)
+```
+
+Una matriz se puede generar igual mediante otros dos comandos ¿Cuáles son?
+Respuesta: Se puede generar con los comandos ´dim 
+
+
+### Gráficos
+
+El comando `plot` me permite graficar dos vectores de igual longtitud. El comando `par(mfrow=c(2,2))` divide el espacio de graficación en dos filas y dos columnas con lo cual yo graficar 4 gráficos sobre la misma figura. 
+Por otro lado el comando `write(path)` permite escribir un archivo en la dirección dada por `path`, por ejemplo:
+
+```{r eval=FALSE}
+x <-rnorm(20)   # Variables aleatorias con media 0 y sd 1
+write(x,"archivo.txt", "\n")
+```
+Crea un archivo llamado `archivo.txt` en el directorio de trabajo. De igual forma `R` permite graficar en otro **dispositivo**. Por ejemplo, podemos graficar en un dispositivo PDF y después guardar el archivo en el directorio de trabajo mediante el siguiente comando:
+```{r}
+x <- rnorm(200)
+write(x, file = "archivo.txt", sep = ",")
+```
+
+
+```{r eval=FALSE}
+pdf("fran.pdf")            # Creamos el PDF
+plot(rnorm(100),type = "l")  # Graficamos en el dispositivo
+dev.off()                   # Finalmente cerramos el PDF
+
+```
+
+Con base en lo anterior se requiere que el estudiante genere 40 archivos llamados con valores aleatorios del tipo uniforme (creados mediante `runif()`) y cree los archivos `txt` y `pdf` que contienen sus valores y sus gráficos. 
+```{r}
+for (i in 1:10){
+ x <- runif(1000)
+ write(x, file = paste("archivo_",i, ".pdf", seq=""), sep="\n")
+ pdf(paste("Archivo_",i, ".pdf", sep = ""))
+ plot(x,type = "l")
+ dev.off()
+}
+```
+
+
+El enlace del trabajo se incluye en el canvas.
+
+## Referencias adicionales
+
+- Puede consultar cualquier libro de R.
+- Se puede consultar las presentaciones previas.
