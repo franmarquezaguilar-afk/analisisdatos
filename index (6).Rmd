@@ -1,0 +1,82 @@
+---
+title: Análisis de datos con R
+subtitle: "Cuestionario - el paquete dplyr"
+author: "Francisco Marquez Aguilar"
+date: "22/10/2025"
+output:
+    prettydoc::html_pretty:
+      theme: hpstr
+      highlight: vignette
+---
+
+1. ¿Cómo se llama el paquete de R desarrollado por Hadley Wickham y colegas en Posit, que proporciona un conjunto completo de funciones para resolver desafíos comunes de manipulación de datos?}
+-el (dplyr)
+
+2. Mencione una de las dos razones principales por las que el autor considera importante aprender primero la manipulación de datos con R base antes de pasar a {dplyr}.
+
+-A través de los comentarios que recibo de mis alumnos, observo que {dplyr}es relativamente fácil de aprender cuando se está familiarizado con R base (lo cual es bastante gratificante para aquellos que tuvieron dificultades al principio).
+
+
+3. ¿Qué término se usa para describir el código de {dplyr} en comparación con el código R base, refiriéndose a su facilidad de entendimiento y estructura?
+-interes 
+
+
+4. Para que un data frame sea considerado "tidy data", ¿dónde debe estar ubicada cada variable?
+-cada variable está en su propia columna,
+-Cada observación, o caso, está en su propia fila, y
+-Cada valor se encuentra en su propia celda.
+
+
+
+5. ¿Con qué nombre genérico (de tres letras) le gusta al autor nombrar los data frames en R para facilitar la reutilización del código?
+-dat 
+
+
+6. ¿Cuál es la función del operador pipe (|>) cuando se aplica a un data frame y una función de {dplyr}?
+ -( |>o %>%)
+
+
+7. ¿Qué función específica de {dplyr} se utiliza para seleccionar observaciones (filas) basándose en una condición (como un valor cuantitativo mayor a 4000)?}
+-filter() 
+
+8. Si se utiliza la función filter(), ¿qué operador se usa para combinar dos condiciones si ambas deben ser alternativas (es decir, que se cumpla la primera O la segunda)?
+-|(si las condiciones son alternativas)
+
+9. ¿Qué función de {dplyr} se utiliza para seleccionar o eliminar variables (columnas) por sus nombres o posiciones?
+-select() 
+
+10. Si se usa la función select() para eliminar una columna, ¿qué signo se coloca delante del nombre o posición de la variable?
+-(-)
+
+11. ¿Qué función se utiliza para cambiar el nombre de una o más variables?
+-rename
+
+12. Al usar la función rename(), ¿cuál de los dos nombres se escribe primero: el nombre antiguo o el nuevo nombre de la variable?
+-debes escribir primero el nombre nuevo y luego el nombre antiguo (separados por el =signo).
+
+13. ¿Qué función se utiliza para crear una nueva variable (por ejemplo, dividiendo una variable existente entre 1000) o para modificar una variable?
+-mutate() 
+
+14. ¿Qué función de {dplyr} se utiliza para ordenar las observaciones del data frame?
+-arrange() 
+
+15. Por defecto, ¿en qué orden (ascendente o descendente) ordena las observaciones la función arrange()?
+
+16. ¿Qué función se utiliza para extraer un conjunto de filas basándose en sus números de posición (ej. las filas 2, 5 y 37)?
+-slice() 
+
+17. ¿Qué función se utiliza para obtener una muestra aleatoria basada en un número fijo de filas (por ejemplo, 3 filas)?
+-sample_n() 
+
+18. ¿Qué función se utiliza para reducir un conjunto de observaciones a una única medida descriptiva, como la media o la desviación estándar?
+- Esto se puede hacer con la summarize()función, además de la mayoría de las funciones utilizadas para estadísticas descriptivas ( mean(), median(), min(), max(), sd(), var(), etc.)
+
+19. ¿Qué función se utiliza para modificar la forma en que las operaciones de resumen se realizan, haciendo que se ejecuten separadamente para cada subconjunto de filas definido (por ejemplo, por especie)?
+-distinct()
+
+
+20. ¿Qué función, que se utiliza junto con mutate(), se recomienda para crear una nueva variable categórica que solo puede tomar dos niveles ("High" o "Low")?}
+case-when 
+
+
+
